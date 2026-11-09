@@ -1,5 +1,7 @@
 # Ghonchu
 
+DOI: [10.5281/zenodo.24065855](https://doi.org/10.5281/zenodo.24065855)
+
 Ghonchu is the friendly tutor of Abhishek Choudhary's robotics course: Colab notebooks that run on a phone, from a child's first plastic robot to research.
 
 **Initial drop, 9 November 2026. Expect updates soon.** The notebooks are extracted from the course's design discussion of 8 November 2026 and have not yet been run end to end. What was checked and what was changed is in [origin/SEED-DIFF.md](origin/SEED-DIFF.md).

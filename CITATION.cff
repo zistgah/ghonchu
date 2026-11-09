@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "Ghonchu: a friendly AI tutor for building robots, from a first plastic robot to research (initial drop)"
+doi: 10.5281/zenodo.24065855
 version: 0.1.0
 date-released: '2026-11-09'
 license: GPL-3.0-or-later
