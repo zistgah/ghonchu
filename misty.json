@@ -1,0 +1,28 @@
+{
+ "title": "Ghonchu: a friendly AI tutor for building robots, from a first plastic robot to research (initial drop)",
+ "version": "0.1.0",
+ "upload_type": "software",
+ "description": "<p>Ghonchu is the friendly tutor of Abhishek Choudhary's robotics course: eighteen Colab notebooks that run on a phone, from a child's first plastic robot, built, connected and tuned in timed parts, to research assistants for clinics, field archaeology, linguistics, psychology and brain-computer interfaces, systems architecture, app generation, volunteer computing grids and an operating-systems course.</p><p>Initial drop: the notebooks are extracted from the course's design discussion of 8 November 2026 and have not yet been run end to end; updates follow.</p><p>© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. Licensed under GPL-3.0-or-later.</p>",
+ "license": "gpl-3.0-or-later",
+ "access_right": "open",
+ "language": "eng",
+ "creators": [
+  {
+   "name": "Choudhary, Abhishek",
+   "affiliation": "AyeAI",
+   "orcid": "0009-0002-0684-8320"
+  }
+ ],
+ "keywords": [
+  "robotics education",
+  "physical AI",
+  "ESP32",
+  "Arduino",
+  "Google Colab",
+  "AI tutor",
+  "vision-language model",
+  "Hindawi Programming System"
+ ],
+ "repository": "https://github.com/zistgah/ghonchu",
+ "related_identifiers": []
+}

@@ -1,0 +1,92 @@
+[
+ {
+  "file": "00_ghonchu_master_tutor.ipynb",
+  "title": "Ghonchu, your robotics tutor",
+  "what": "The course in one notebook: build the base in ten minutes, connect it in thirty, tune it in fifteen. Ghonchu looks at your chassis through your phone's camera."
+ },
+ {
+  "file": "01_chassis_and_vision.ipynb",
+  "title": "Chassis and vision",
+  "what": "Wire the motor driver to the pins in the table, then let Ghonchu look at the chassis."
+ },
+ {
+  "file": "02_network_and_telemetry.ipynb",
+  "title": "Network and telemetry",
+  "what": "Register your robot on the free backbone and set the safety heartbeat that stops the motors when messages stop arriving."
+ },
+ {
+  "file": "03_ghonchu_eye_live.ipynb",
+  "title": "Ghonchu's eye, live",
+  "what": "Ghonchu watches through the phone camera and speaks when something needs attention. This version checks the light; your own checks go into process_ghonchu_frame."
+ },
+ {
+  "file": "04_ghonchu_local_vision_model.ipynb",
+  "title": "Ghonchu's eye with a vision model",
+  "what": "The same eye with an open-weight vision-language model (Qwen2.5-VL 7B in 4-bit) on a Colab T4 GPU. Choose Runtime, then Change runtime type, then T4 GPU."
+ },
+ {
+  "file": "05_clinical_vision_assistant.ipynb",
+  "title": "Clinical vision assistant",
+  "what": "For clinicians and medical educators: the assistant looks at instruments, vials, labels and layouts and says one sentence about what it sees. For teaching and practice only."
+ },
+ {
+  "file": "06_epigraphy_field_assistant.ipynb",
+  "title": "Epigraphy field assistant",
+  "what": "For historians and archaeologists: point the camera at an inscription, a coin or a sherd, and the assistant names the likely script family and what it can read. Raking light helps."
+ },
+ {
+  "file": "07_field_linguistics_assistant.ipynb",
+  "title": "Field linguistics assistant",
+  "what": "For field linguists: text, symbols and articulation described in one sentence, with IPA where it applies."
+ },
+ {
+  "file": "08_psychology_observation_assistant.ipynb",
+  "title": "Psychology observation assistant",
+  "what": "For psychologists: an objective description of a room or a task set-up. It does not diagnose, and nobody is observed without informed consent."
+ },
+ {
+  "file": "09_bci_neuro_vision_assistant.ipynb",
+  "title": "BCI and neuro-vision assistant",
+  "what": "For BCI and neuroscience work: electrode placement, caps and signal plots, checked for plain faults such as line noise or a loose electrode. The course's robots can be driven by a NeuroSky headset."
+ },
+ {
+  "file": "10_universal_tutor.ipynb",
+  "title": "One tutor for any domain",
+  "what": "Type the domain you are working in, and the same assistant adapts its prompt to it: robot wiring, surgical trays, Brahmi inscriptions or EEG caps."
+ },
+ {
+  "file": "11_systems_architecture_sysml.ipynb",
+  "title": "Systems architecture in SysML",
+  "what": "Describe a system and get PlantUML for a SysML block definition diagram, compiled and shown in the notebook. The example is a CubeSat."
+ },
+ {
+  "file": "12_app_generator.ipynb",
+  "title": "An app from a sentence",
+  "what": "Describe a web app; the model writes a single-page app, zips it, and the notebook shows how to publish it from a phone."
+ },
+ {
+  "file": "13_cloud_app_generator.ipynb",
+  "title": "A full stack from a sentence",
+  "what": "A web front end, a Flask back end and a setup script for a free-tier cloud machine, zipped together."
+ },
+ {
+  "file": "14_volunteer_grid_cluster.ipynb",
+  "title": "Notebooks as a volunteer grid",
+  "what": "Nginx in front of a small Flask agent, with a shared sheet as the directory, turns many notebooks into a Beowulf-style or BOINC-style grid."
+ },
+ {
+  "file": "15_stub_filling_automation.ipynb",
+  "title": "Filling thousands of function stubs",
+  "what": "For the operating-systems course: every atomic C function is specified by its interface; a loop fills each stub through an API and zips the tree. The first loop discussed is kept below as well."
+ },
+ {
+  "file": "16_backbone_and_mission_control.ipynb",
+  "title": "Backbone and mission control",
+  "what": "The environment cell for the Hindawi toolchain, the free signalling backbone on Sheets and Pages, and one tracker for every embodiment, from a toy robot to a CubeSat."
+ },
+ {
+  "file": "17_coding_agents_and_limits.ipynb",
+  "title": "Coding agents and Colab limits",
+  "what": "Coding agents you can run inside Colab, and the session limits to plan around."
+ }
+]

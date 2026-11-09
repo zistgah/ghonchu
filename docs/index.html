@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghonchu, your robotics tutor</title>
+<meta name="description" content="Ghonchu, the friendly AI tutor of Abhishek Choudhary's robotics course: notebooks that run on a phone, from a first plastic robot to research. Initial drop.">
+<meta name="author" content="Abhishek Choudhary">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" type="text/plain" href="llms.txt">
+<style>
+:root{--bg:#FBF7EF;--card:#FFFFFF;--ink:#231A12;--muted:#6B5D50;--rule:#E8DFD1;--accent:#D9822B;--link:#9A4F12;
+--serif:"Iowan Old Style","Palatino Linotype","URW Palladio L",P052,Georgia,serif;--sans:Seravek,"Gill Sans Nova",Ubuntu,Calibri,"DejaVu Sans",sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#141019;--card:#1D1824;--ink:#F2EBE1;--muted:#B7A99B;--rule:#2E2737;--accent:#F2A65A;--link:#F7C18A}}
+*{box-sizing:border-box}html{background:var(--bg);color:var(--ink)}body{margin:0;font:17px/1.6 var(--sans)}
+a{color:var(--link)}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#stage{position:relative;height:min(62vh,440px);min-height:300px;overflow:hidden;touch-action:manipulation;cursor:pointer;
+background:radial-gradient(120% 60% at 50% 108%,#FFD38A 0%,#F7A08B 28%,#7D5BA6 58%,#2A2457 82%,#15142E 100%)}
+#sun{position:absolute;left:50%;bottom:-70px;width:220px;height:220px;margin-left:-110px;border-radius:50%;background:radial-gradient(circle,#FFF2C4 0%,#FFD27A 45%,rgba(255,190,110,0) 70%);filter:blur(2px)}
+#ground{position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(#3B2B4F,#241B33)}
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#FFF6D8;opacity:.2;animation:tw 2.8s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:.95;transform:scale(1.25)}}
+#ghonchu{position:absolute;left:0;top:0;width:130px;height:130px;transform-origin:50% 100%;will-change:transform;overflow:visible}
+#shadow{position:absolute;left:0;bottom:24px;width:96px;height:16px;margin-left:-48px;border-radius:50%;background:rgba(20,10,30,.45);filter:blur(3px)}
+#bubble{position:absolute;left:0;top:0;max-width:220px;padding:.45rem .8rem;border-radius:14px;background:#FFFDF6;color:#2A1D12;font:600 .95rem/1.3 var(--sans);box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
+#bubble.on{opacity:1}
+#title{position:absolute;left:1.2rem;top:1rem;color:#FFF6E6;text-shadow:0 2px 10px rgba(0,0,0,.35);pointer-events:none}
+#title h1{font-family:var(--serif);font-size:clamp(2rem,6vw,3.2rem);margin:0;line-height:1.05}#title p{margin:.3rem 0 0;font-size:1rem;opacity:.9}
+#jump{position:absolute;right:1rem;top:1rem;font:600 .95rem var(--sans);border:0;border-radius:999px;padding:.45rem 1rem;background:#FFF6E6;color:#3A2516;cursor:pointer}
+main,footer{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+.drop{margin:1.4rem 0;padding:.9rem 1.1rem;border-left:5px solid var(--accent);background:var(--card);border-radius:10px}
+h2{font-family:var(--serif);font-size:1.6rem;margin:2.6rem 0 .6rem}p{max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16.5rem,1fr));gap:.8rem}.grid article{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:.7rem .9rem}
+.grid h3{margin:0 0 .3rem;font-size:1.02rem}.grid p{margin:.2rem 0 .5rem;font-size:.92rem;color:var(--muted)}
+ol.ladder li{margin:.3rem 0;max-width:68ch}
+footer{border-top:1px solid var(--rule);margin-top:3.5rem;padding-top:1.1rem;padding-bottom:2.5rem;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.spark{animation:none;opacity:.6}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="Ghonchu bouncing in a sky just before sunrise; tap to make Ghonchu jump">
+<div id="sun"></div><div id="ground"></div><div id="shadow"></div>
+<svg id="ghonchu" viewBox="0 0 140 140" role="img" aria-label="Ghonchu, a round glowing tutor with big eyes">
+<defs><radialGradient id="gb" cx="42%" cy="34%" r="70%"><stop offset="0%" stop-color="#FFFBEA"/><stop offset="55%" stop-color="#FFE08E"/><stop offset="100%" stop-color="#F2AE46"/></radialGradient>
+<filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+<circle cx="70" cy="76" r="62" fill="#FFE9A6" opacity=".55" filter="url(#glow)"/>
+<path d="M66 22 C58 8 74 2 76 12 C78 4 92 8 84 20" fill="none" stroke="#F2AE46" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="54" cy="128" rx="11" ry="6" fill="#E89C36"/><ellipse cx="86" cy="128" rx="11" ry="6" fill="#E89C36"/>
+<circle cx="70" cy="76" r="54" fill="url(#gb)"/>
+<g id="eyes"><ellipse id="el" cx="51" cy="70" rx="13" ry="14" fill="#fff"/><ellipse id="er" cx="89" cy="70" rx="13" ry="14" fill="#fff"/>
+<g id="pl"><circle cx="51" cy="71" r="7" fill="#2B1D12"/><circle cx="54" cy="68" r="2.4" fill="#fff"/></g>
+<g id="pr"><circle cx="89" cy="71" r="7" fill="#2B1D12"/><circle cx="92" cy="68" r="2.4" fill="#fff"/></g></g>
+<ellipse cx="36" cy="90" rx="9" ry="5.5" fill="#FF9BAE" opacity=".85"/><ellipse cx="104" cy="90" rx="9" ry="5.5" fill="#FF9BAE" opacity=".85"/>
+<path id="mouth" d="M60 93 Q70 103 80 93" fill="none" stroke="#7A3E1D" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
+<div id="bubble" aria-live="polite"></div>
+<div id="title"><h1>Ghonchu</h1><p>Your robotics tutor, from a first robot to research</p></div>
+<button id="jump" type="button">Make Ghonchu jump</button>
+</div>
+<main>
+<p class="drop"><strong>Initial drop, 9 November 2026. Expect updates soon.</strong> The notebooks below are extracted from the course's design discussion and have not yet been run end to end. What was checked and what was changed is listed in <a href="https://github.com/zistgah/ghonchu/blob/main/origin/SEED-DIFF.md">origin/SEED-DIFF.md</a>.</p>
+<h2>Who Ghonchu is</h2>
+<p>Ghonchu is the friendly tutor of Abhishek Choudhary's robotics course. Children build the simplest robots that can be made, plastic two-wheel and four-wheel cars, then drones, boats and arms, on Arduino and then ESP32, and code them in their own language through the Hindawi Programming System. The same notebooks run on a phone in Colab, so a child needs no laptop, and they keep going all the way to research: CubeSats, clinics, field archaeology, linguistics, psychology and brain-computer interfaces.</p>
+<h2>The first lesson, in three timed parts</h2>
+<ol class="ladder"><li><strong>Ten minutes to build.</strong> Motors on the chassis, the driver wired to the pins in the table. Stuck? Ghonchu looks through your phone's camera.</li>
+<li><strong>Thirty minutes to connect.</strong> Your robot registers on a free backbone, a shared sheet and GitHub Pages, and anyone you allow can drive it from anywhere.</li>
+<li><strong>Fifteen minutes to tune.</strong> A safety heartbeat: when messages stop arriving, the motors stop.</li></ol>
+<h2>Notebooks</h2>
+<div class="grid" id="nbs"></div>
+<h2>Privacy and safety</h2>
+<p>Camera pictures go from the phone's browser to a Colab runtime on Google's cloud. Point the camera at the robot, never at a person without their informed consent; children use it with an adult. Nothing here is a medical, psychological or diagnostic device.</p>
+</main>
+<footer>
+<p>© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. Licensed under GPL-3.0-or-later. AyeAI® and AyeAM® are registered trade marks of Abhishek Choudhary in India; AyeCNSe™ (Indian TM application No. 7415871, pending) is his trade mark. The names of his products and projects, Ghonchu among them, are his trademarks.</p>
+<p><a href="https://github.com/zistgah/ghonchu">github.com/zistgah/ghonchu</a>. Contact: ayeai.ayeam@gmail.com</p>
+</footer>
+<script>
+(function(){var N=[["00_ghonchu_master_tutor","Ghonchu, your robotics tutor","Build in ten minutes, connect in thirty, tune in fifteen."],["01_chassis_and_vision","Chassis and vision","Pins, wiring and a photo for Ghonchu."],["02_network_and_telemetry","Network and telemetry","The free backbone and the safety heartbeat."],["03_ghonchu_eye_live","Ghonchu's eye, live","Watches and speaks while you build."],["04_ghonchu_local_vision_model","Ghonchu's eye with a vision model","An open vision-language model on a Colab GPU."],["05_clinical_vision_assistant","Clinical vision assistant","For medical educators; teaching only."],["06_epigraphy_field_assistant","Epigraphy field assistant","Inscriptions, coins and sherds."],["07_field_linguistics_assistant","Field linguistics assistant","Text, symbols and IPA."],["08_psychology_observation_assistant","Psychology observation assistant","Objective, consented, never diagnostic."],["09_bci_neuro_vision_assistant","BCI and neuro-vision assistant","Caps, electrodes and signal plots."],["10_universal_tutor","One tutor for any domain","Type a domain; the assistant adapts."],["11_systems_architecture_sysml","Systems architecture in SysML","A CubeSat block diagram from a sentence."],["12_app_generator","An app from a sentence","A web app, zipped, published from a phone."],["13_cloud_app_generator","A full stack from a sentence","Front end, Flask back end, cloud setup."],["14_volunteer_grid_cluster","Notebooks as a volunteer grid","Nginx, a Flask agent and a shared sheet."],["15_stub_filling_automation","Filling thousands of function stubs","For the operating-systems course."],["16_backbone_and_mission_control","Backbone and mission control","From a toy robot to a CubeSat."],["17_coding_agents_and_limits","Coding agents and Colab limits","Agents in a cell; limits to plan around."]];
+var box=document.getElementById("nbs");N.forEach(function(n){var a=document.createElement("article");var h=document.createElement("h3");h.textContent=n[1];var p=document.createElement("p");p.textContent=n[2];var l=document.createElement("a");l.href="https://colab.research.google.com/github/zistgah/ghonchu/blob/main/notebooks/"+n[0]+".ipynb";l.textContent="Open in Colab";a.appendChild(h);a.appendChild(p);a.appendChild(l);box.appendChild(a);});})();
+</script>
+<script src="ghonchu.js"></script>
+</body>
+</html>

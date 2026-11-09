@@ -1,0 +1,8 @@
+# Ghonchu
+
+> The friendly tutor of Abhishek Choudhary's robotics course (AyeAI): Colab notebooks that run on a phone, from a first plastic robot to research. Initial drop, 9 November 2026.
+
+© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. Licensed under GPL-3.0-or-later.
+
+- [Repository](https://github.com/zistgah/ghonchu): README.md, CONCEPT.md, notebooks/, origin/SEED-DIFF.md
+- The notebooks are extracted from the design discussion and not yet run end to end.
