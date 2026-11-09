@@ -1,0 +1,18 @@
+{
+    "_type": "https://in-toto.io/Statement/v1",
+    "predicateType": "https://project-ilm.org/attestations/candor/v1",
+    "subject": [
+        {
+            "name": "zistgah/ghonchu",
+            "digest": {
+                "gitCommit": "95397efdde7832c4418e3b198ad9ad63364eb236"
+            }
+        }
+    ],
+    "predicate": {
+        "action": "PUSH",
+        "reason": "ghonchu",
+        "utc": "20261109T004555Z",
+        "host": "ilm01"
+    }
+}
